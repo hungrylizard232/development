@@ -12,7 +12,11 @@ export default function DuckItem(props) {
                 ${props.item.price}
                 </Card.Text>
                 <Button variant="secondary" onClick = {() => props.increaseCart(props.index)}>+</Button>
-                <Button variant="secondary" onClick = {() => props.decreaseCart(props.index)}>-</Button>
+                <Button variant="secondary" onClick = {() => 
+                    {props.decreaseCart(props.index); 
+                    props.finalCart(props.index);}}>
+                        -
+                        </Button>
             </Card.Body>
             </Card>
             

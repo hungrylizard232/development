@@ -16,27 +16,37 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   const [cart, setCart] =useState({});
   const [price, setPrice] = useState(0);
-  const increa = (uid) => {
+  const increaseCart = (uid) => {
     let newCart = cart;
     if (newCart[uid]) {
       newCart[uid] += 1;
-    } else {
+    } 
+    else {
       newCart[uid] = 1;
     }
     
-    setPrice(price + duckData[uid].price)
+    setPrice(Math.round((price + duckData[uid].price) * 100) / 100 )
     setCart({...newCart});
+
+    console.log(cart);
   }
   const decreaseCart = (uid) => {
     let newCart = cart;
     if (newCart[uid]) {
       newCart[uid] -= 1;
-      setPrice(price - duckData[uid].price);
+       
+      setPrice(Math.round((price - duckData[uid].price) * 100) / 100 );
     }
     setCart({...newCart});
-    
-    
+    // setCart({...(newCart.filter(item => item[uid] !== 0))});
+    console.log(cart);
   }
+
+  const finalCart = (uid) => {
+    let newCart = cart.filter(item => item[uid] !== 0);
+    setCart({...newCart});
+  }
+
   return (
     <div className="App">  
         <div>
@@ -44,7 +54,7 @@ function App() {
           <div className='duck-flexholder'>
           {duckData.map((item, index) => {
           return (
-          <DuckItem increaseCart={increa} decreaseCart={decreaseCart} item = {item} index = {index} />
+          <DuckItem increaseCart={increaseCart} decreaseCart={decreaseCart} finalCart={finalCart} item = {item} index = {index} />
           )          
           })}
           </div>
@@ -64,6 +74,7 @@ function App() {
             <ListGroup className="list-group-flush">
             {Object.keys(cart).map((key) => {
               return (
+                
                 <ListGroup.Item>{duckData[key].name + ": " + cart[key]}</ListGroup.Item>
               )
               
