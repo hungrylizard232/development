@@ -1,21 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
-import duckData from "./assets/duckData.json";
+import duckData from "./duckData.json";
 import DuckItem from './DuckItem';
+import DuckFilter from './DuckFilter.js';
 
 import { useState } from "react";
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
-
-
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [cart, setCart] =useState({});
   const [price, setPrice] = useState(0);
+  const [type, setType] = useState("all");
+  const [quantity, setQuantity] = useState("all");
+  const [priceSort, setPriceSort] = useState(true);
   const increaseCart = (uid) => {
     let newCart = cart;
     if (newCart[uid]) {
@@ -27,8 +27,6 @@ function App() {
     
     setPrice(Math.round((price + duckData[uid].price) * 100) / 100 )
     setCart({...newCart});
-
-    console.log(cart);
   }
   const decreaseCart = (uid) => {
     let newCart = cart;
@@ -38,32 +36,67 @@ function App() {
       setPrice(Math.round((price - duckData[uid].price) * 100) / 100 );
     }
     setCart({...newCart});
-    // setCart({...(newCart.filter(item => item[uid] !== 0))});
-    console.log(cart);
+  }
+  const selectFilterType1 = (eventKey) => {
+    setType(eventKey);
   }
 
-  const finalCart = (uid) => {
-    let newCart = cart.filter(item => item[uid] !== 0);
-    setCart({...newCart});
+  const selectFilterType2 = (eventKey) => {
+    setQuantity(eventKey);
   }
 
+  const selectSortType = () => {
+    setPriceSort(!priceSort);
+  }
+
+  const matchesFilterType1 = (item) => {
+    if (type === 'all'){
+      return true
+    }
+    return item.theme.includes(type)
+  }
+
+  const matchesFilterType2 = (item) => {
+    if (quantity === 'all'){
+      return true
+    }
+    return item.quantity === quantity
+  }
+
+  const sortDucks = (data) => {
+    if (!priceSort){
+      return data.sort(function(a, b){return a.price - b.price});
+    } else {
+      return data;
+    }
+    
+  }
+
+  const filteredData = sortDucks(duckData.filter(matchesFilterType1).filter(matchesFilterType2))
+  
   return (
     <div className="App">  
         <div>
           <h1>Rubber Duck store</h1>
-          <div className='duck-flexholder'>
-          {duckData.map((item, index) => {
-          return (
-          <DuckItem increaseCart={increaseCart} decreaseCart={decreaseCart} finalCart={finalCart} item = {item} index = {index} />
-          )          
-          })}
+          <div className='store'>
+              <div className='sidebar'>
+                <DuckFilter selectFilterType1={selectFilterType1} selectFilterType2={selectFilterType2} selectSortType={selectSortType}/>
+              </div>
+              <div className='duck-flexholder'>
+              {filteredData.map((item, index) => {
+                return (
+                <DuckItem increaseCart={increaseCart} decreaseCart={decreaseCart} item = {item} index = {index} />
+                )          
+              })}
+              </div>
+
           </div>
         </div>
+          
 
           <div className='checkout'>
             <h2>Cart</h2>
             <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="holder.js/100px180?text=Image cap" />
             <Card.Body>
               <Card.Title>My Cart</Card.Title>
               <Card.Text>
@@ -72,7 +105,7 @@ function App() {
               </Card.Text>
             </Card.Body>
             <ListGroup className="list-group-flush">
-            {Object.keys(cart).map((key) => {
+            {Object.keys(cart).filter(x => cart[x] !== 0).map((key) => {
               return (
                 
                 <ListGroup.Item>{duckData[key].name + ": " + cart[key]}</ListGroup.Item>
@@ -80,17 +113,8 @@ function App() {
               
             })}
             </ListGroup>
-            <Card.Body>
-              <Card.Link href="#">Card Link</Card.Link>
-              <Card.Link href="#">Another Link</Card.Link>
-            </Card.Body>
           </Card>
-          </div>
-
-          
-
-    
-      
+          </div>    
     </div>
 
     

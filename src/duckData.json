@@ -1,98 +1,98 @@
 [
     {
       "name": "sports ball duck",
-      "quantity": 3,
+      "quantity": "3",
       "theme": ["not-duck"],
       "price": 12.99,
-      "image": "./assets/sports-ball-rubber-ducks-12-pc-_13948806.jpg"
+      "image": "assets/sports-ball-rubber-ducks-12-pc-_13948806.jpg"
     },
     {
       "name": "armed forces duck",
-      "quantity": 4,
+      "quantity":"4",
       "theme": ["professional"],
       "price": 15.99,
       "image": "assets/armed-forces-rubber-ducks-12-pc-_16_861.jpg"
     },
     {
       "name": "cat duck",
-      "quantity": 4,
+      "quantity": "4",
       "theme": ["not-duck"],
       "price": 14.99,
       "image": "assets/cat-rubber-ducks-12-pc-_16_881.jpg"
     },
     {
       "name": "troll duck",
-      "quantity": 4,
+      "quantity": "4",
       "theme": ["not-duck"],
       "price": 16.99,
       "image": "assets/crazy-hair-rubber-ducks-12-pc-_16_1244.jpg"
     },
     {
       "name": "dog duck",
-      "quantity": 3,
+      "quantity": "3",
       "theme": ["not-duck"],
       "price": 12.99,
       "image": "assets/dog-rubber-ducks-12-pc-_16_882.jpg"
     },
     {
       "name": "macdonalds duck",
-      "quantity": 3,
+      "quantity": "3",
       "theme": ["not-duck"],
       "price": 13.99,
       "image": "assets/foodie-rubber-ducks-12-pc-_13824536.jpg"
     },
     {
       "name": "pirate duck",
-      "quantity": 3,
+      "quantity": "3",
       "theme": ["professional"],
       "price": 10.99,
       "image": "assets/classic-pirate-rubber-ducks-12-pc-_16_733.jpg"
     },
     {
       "name": "santa duck and friends",
-      "quantity": 4,
+      "quantity": "4",
       "theme": ["holiday","not-duck"],
       "price": 16.99,
-      "image": "armed-forces-rubber-ducks-12-pc-_16_861.jpg"
+      "image": "assets/holiday-rubber-ducks-12-pc-_4_4122.jpg"
     },
     {
       "name": "ninja duck",
-      "quantity": 3,
+      "quantity": "3",
       "theme": ["professional"],
       "price": 11.99,
       "image": "assets/ninja-rubber-ducks-12-pc-_16_880.jpg"
     },
     {
       "name": "unicorn duck",
-      "quantity": 3,
+      "quantity": "3",
       "theme": ["not-duck"],
       "price": 12.99,
       "image": "assets/pegasus-rubber-ducks-12-pc-_13806443.jpg"
     },
     {
       "name": "reindeer duck",
-      "quantity": 3,
+      "quantity": "3",
       "theme": ["holiday", "not-duck"],
       "price": 13.99,
       "image": "assets/reindeer-rubber-ducks_4_4041.jpg"
     },
     {
       "name": "spin top duck",
-      "quantity": 3,
+      "quantity": "3",
       "theme": ["not-duck"],
       "price": 12.99,
       "image": "assets/rubber-ducky-spin-tops-12-pc-_14090714.jpg"
     },
     {
       "name": "astronaut duck",
-      "quantity": 3,
+      "quantity": "3",
       "theme": ["professional"],
       "price": 11.99,
       "image": "assets/space-explorer-rubber-ducks-12-pc-_16_1330.jpg"
     },
     {
       "name": "christmas sweater duck",
-      "quantity": 3,
+      "quantity": "3",
       "theme": ["holiday"],
       "price": 14.99,
       "image": "assets/ugly-christmas-sweater-rubber-ducks-12-pc-_13780532.jpg"

@@ -20,9 +20,20 @@ code {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content:space-between;
 }
 
 .duck-container{
   width:50%;
+}
+
+.duck-image{
+  width : 20%;
+  text-align: center;
+}
+
+.drop-filters{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
