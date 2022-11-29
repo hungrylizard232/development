@@ -16,6 +16,7 @@ function App() {
   const [type, setType] = useState("all");
   const [quantity, setQuantity] = useState("all");
   const [priceSort, setPriceSort] = useState(true);
+  const [checked, setChecked] = useState(false);
   const increaseCart = (uid) => {
     let newCart = cart;
     if (newCart[uid]) {
@@ -47,6 +48,7 @@ function App() {
 
   const selectSortType = () => {
     setPriceSort(!priceSort);
+    setChecked(!checked);
   }
 
   const matchesFilterType1 = (item) => {
@@ -69,7 +71,13 @@ function App() {
     } else {
       return data;
     }
-    
+  }
+
+  const reset = () => {
+    setType("all");
+    setQuantity("all");
+    setPriceSort(true);
+    setChecked(false);
   }
 
   const filteredData = sortDucks(duckData.filter(matchesFilterType1).filter(matchesFilterType2))
@@ -80,7 +88,7 @@ function App() {
           <h1>Rubber Duck store</h1>
           <div className='store'>
               <div className='sidebar'>
-                <DuckFilter selectFilterType1={selectFilterType1} selectFilterType2={selectFilterType2} selectSortType={selectSortType}/>
+                <DuckFilter selectFilterType1={selectFilterType1} selectFilterType2={selectFilterType2} selectSortType={selectSortType} checked={checked} reset={reset} type={type} quantity={quantity}/>
               </div>
               <div className='duck-flexholder'>
               {filteredData.map((item, index) => {
