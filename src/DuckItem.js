@@ -4,8 +4,8 @@ import Button from 'react-bootstrap/Button';
 export default function DuckItem(props) {
     return (
         <div className='duck-container'>
-            <Card style={{ width: '80%' }}>
-            <Card.Img style={{ width: '70%'}}className='duck-image' variant="top" src={props.item.image} />
+            <Card style={{ width: '100%' }}>
+            <Card.Img style={{ width: '100%'}}className='duck-image' variant="top" src={props.item.image} />
             <Card.Body>
                 <Card.Title>{props.item.name}</Card.Title>
                 <Card.Text>

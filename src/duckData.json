@@ -96,6 +96,13 @@
       "theme": ["holiday"],
       "price": 14.99,
       "image": "assets/ugly-christmas-sweater-rubber-ducks-12-pc-_13780532.jpg"
+    },
+    {
+      "name": "nutcracker duck",
+      "quantity": "3",
+      "theme": ["holiday","professional"],
+      "price": 14.99,
+      "image": "assets/nutcracker-rubber-ducks_13957000.jpg"
     }
   ]
   

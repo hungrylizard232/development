@@ -85,7 +85,8 @@ function App() {
   return (
     <div className="App">  
         <div>
-          <h1>Rubber Duck store</h1>
+          <p style={{padding:"2rem"}}>To familiarize myself with React, I used it to create a simple rubber duck store that allows the customer to add, remove, filter, and sort items. </p>
+          <h1>~My Rubber Ducks~</h1>
           <div className='store'>
               <div className='sidebar'>
                 <DuckFilter selectFilterType1={selectFilterType1} selectFilterType2={selectFilterType2} selectSortType={selectSortType} checked={checked} reset={reset} type={type} quantity={quantity}/>
